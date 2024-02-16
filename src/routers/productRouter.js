@@ -1,28 +1,20 @@
 import express from 'express'
+import listAll from '../controllers/product/listAll'
+import getOne from '../controllers/product/getOne'
+import create from '../controllers/product/create'
+import update from '../controllers/product/update'
+import remove from '../controllers/product/remove'
 
 const router = express.Router()
 
-router.get('/', (req, res) => {
-    res.json({message: 'Esta é a rota /product/'})
-})
+router.get('/', listAll)
 
-router.get('/:id', (req, res) => {
-    const id = req.params.id
-    res.json({message: 'Esta é a rota /product/:id '+'ID = '+id})
-})
+router.get('/:id', getOne)
 
-router.post('/', (req, res) => {
-    const user = req.body
-    res.json({message: 'Esta é a rota POST /product/', user})
-})
+router.post('/', create)
 
-router.put('/', (req, res) => {
-    res.json({message: 'Esta é a rota PUT /product/'})
-})
+router.put('/', update)
 
-router.delete('/:id', (req, res) => {
-    const id = req.params.id
-    res.json({message: 'Esta é a rota DELETE /product/:id '+'ID = '+id})
-})
+router.delete('/:id', remove)
 
 export default router
