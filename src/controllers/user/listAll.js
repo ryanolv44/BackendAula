@@ -1,7 +1,16 @@
+import userModel from "../../models/userModel.js"
 
-const listAll = ('/', (req, res) => {
-    const user = req.body
-    res.json({message: 'Esta é a rota GET /user/', user})
+const listAll =  ('/', async (req, res) => {
+    try {
+        const users = await userModel.getAll()
+        res.json({success: 'Usuarios listados com sucesso!', users})
+            
+    } catch (error) {
+        console.log(error)
+
+    }
+    const users = await userModel.getAll()
+    res.json({success: 'Usuarios listados com sucesso!', users})
 })
 
 export default listAll
