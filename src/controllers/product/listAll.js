@@ -1,7 +1,18 @@
+import productModel from "../../models/productModel.js"
 
-const listAll = ('/', (req, res) => {
-    const user = req.body
-    res.json({message: 'Esta é a rota GET /product/', product})
-})
+const listAll = async (req, res) => {
+    try{
+        const products = await productModel.getAll()
+        return res.json({
+            success: 'Usuários listados com sucesso!',
+            products
+        })
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({
+            error: 'Opsss erro no servidor, tente novamente!'
+        })
+    }
+}
 
 export default listAll
