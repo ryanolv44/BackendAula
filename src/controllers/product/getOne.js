@@ -1,6 +1,7 @@
 import productModel from "../../models/productModel.js"
+import getOne from "../user/getOne.js"
 
-const getById = async (req, res) => {
+const getOne = async (req, res) => {
     try{
         const id = req.params.id
         const product = await productModel.getOne(+id)
@@ -16,4 +17,4 @@ const getById = async (req, res) => {
     }
 }
 
-export default getById
+export default getOne
