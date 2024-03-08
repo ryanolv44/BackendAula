@@ -1,5 +1,4 @@
 import productModel from "../../models/productModel.js"
-import getOne from "../user/getOne.js"
 
 const getOne = async (req, res) => {
     try{
