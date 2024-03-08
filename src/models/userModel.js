@@ -37,7 +37,7 @@ const getAll = async () => {
     return await prisma.user.findMany()
 }
 
-const getById = async (id) => {
+const getOne = async (id) => {
     return await prisma.user.findUnique({
         where: {
             id
